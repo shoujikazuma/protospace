@@ -1,33 +1,29 @@
-%form#new_user.container.user-new{"accept-charset" => "UTF-8", :action => "/users", :enctype => "multipart/form-data", :method => "post"}
-    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-    %input{:name => "authenticity_token", :type => "hidden", :value => "S1tWtRVOZwtrsAFVWGSc0rC6nSPJwY6uuL6/T0ggsLR890fsyRgGXmHIVMrno9/VD8jCjEXSubIauwDS1K5Avw=="}/
-    .col-md-8.col-md-offset-2
+=form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "container user-new"}) do |f|
+  -devise_error_messages!
+  .col-md-8.col-md-offset-2
     %header.row.user-nav.row
-        .col-md-12
-        %h2 Register
-        .user-name_image.row
-            .user-name.col-md-10
-            %input#user_username{:autofocus => "autofocus", :name => "user[nickname]", :placeholder => "Username", :type => "text"}/
-            .user-image.col-md-2
-            %img#user_avatar.media-object{:alt => "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", :src => "", :style => "display:none; width:100%; height:100%;"}/
-            %button.btn.btn-primary
-                Add Image
-            %input#upload_avatar{:name => "user[avatar]", :type => "file"}/
-            %input#user_email.user-email{:autofocus => "autofocus", :name => "user[email]", :placeholder => "E-Mail", :type => "email", :value => ""}/
-            %input#user_password.user-password{:autocomplete => "off", :name => "user[password]", :placeholder => "Password", :type => "password"}/
-        .col-md-12
-        %h4 Member of
-        .user-user-member.row
-        .user-name.col-md-12
-        %input#user_group{:autofocus => "autofocus", :name => "user[member]", :placeholder => "Member", :type => "text"}
-        %h4 Profile
-        .user-user-profile.row
-        .user-name.col-md-12
-        %textarea#user_profile{:cols => "30", :name => "user[profile]", :placeholder => "Profile", :rows => "4"}
-        %h4 Works
-        .user-name_image.row
-        .user-name.col-md-12
-        %textarea#user_work{:cols => "30", :name => "user[works]", :placeholder => "Works", :rows => "4"}
-        .row.text-center.user-btn
-        %input.btn.btn-lg.btn-primary.btn-block{:name => "commit", :type => "submit", :value => "Save"}
-        Save
+  .col-md-12
+    %h2 Register
+  .user-name_image.row
+  .user-name.col-md-10
+    =f.text_field :nickname, placeholder: "Username"
+  .user-image.col-md-2
+    %button.btn.btn-primary Add image
+    =f.file_field :avator
+    =f.email_field :email, placeholder: "E-Mail", class: "user-email"
+    =f.password_field :password, placeholder: "Password", class: "user-password"
+  .col-md-12
+    %h4 Member of
+    .user-user-member.row
+    .user-name.col-md-12
+      =f.text_field :member, placeholder: "Member"
+      %h4 Profile
+    .user-user-profile.row
+    .user-name.col-md-12
+      =f.text_area :profile, placeholder: "Profile", cols: "30", rows: "4"
+      %h4 Works
+    .user-name_image.row
+    .user-name.col-md-12
+      =f.text_area :works, placeholder: "Works", cols: "30", rows: "4"
+    .row.text-center.user-btn
+      %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Save
