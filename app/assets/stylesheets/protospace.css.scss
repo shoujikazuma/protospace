@@ -1,9 +1,8 @@
 /* -- import Roboto Font ------------------------------ */
 @import "//fonts.googleapis.com/css?family=Lato:300,400,700";
 
-/*-- Body style ---------------------------------- */
+/*-- Templete style ---------------------------------- */
 body {
-  font-family: "Lato", 'Helvetica Neue, Helvetica, Arial', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -18,6 +17,9 @@ body {
   -moz-font-feature-settings: "liga", "kern";
 }
 
+footer {
+  text-align:center;
+}
 /* -- Main style ------------------------------------ */
 .btn {
   font-family: "Lato", 'Helvetica Neue, Helvetica, Arial', sans-serif;
@@ -261,6 +263,11 @@ body {
     padding: 8px 0 0;
   }
 
+  .navbar-right{
+    float: right !important;
+    margin-right: 15px;
+    }
+
   .btn a {
     color: #fff;
 
@@ -473,6 +480,16 @@ body {
   }
 }
 
+.col-md-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+.col-md-8{
+  width:66.66666666667%;
+  float: left;
+  }
+
+
 .user-new {
   padding-top: 20px;
 
@@ -593,6 +610,16 @@ body {
       box-shadow: 0 1px 1px #eee;
     }
   }
+}
+
+input[type="submit"] {
+  background-color: #337ab7;
+  width: 300px;
+  height: 47px;
+  text-align:centar;
+  font-size:20px;
+  color:#fff;
+
 }
 
 /*-- tag --------------------------------------------- */
