@@ -1,7 +1,8 @@
+=devise_error_messages!
 .continer
   .form-signin
     %h2.form-signin-heading
-      Please sign in
+      サインインしてくださいな
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .sr-only
         = f.email_field :email, placeholder: "Email Adrdess", autofocus: true, required: true, class: "form-control"

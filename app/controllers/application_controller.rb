@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :avatar, :profile, :member, :works])
+      devise_parameter_sanitizer.permit(:sign_up){|u|u.permit(:nickname, :avatar, :profile, :member, :works)}
+      devise_parameter_sanitizer.permit(:update){|u|u.permit(:nickname, :email, :avatar, :profile, :work, :member, :password)}
     end
 end
+
+# def configure_permitted_parameters
+#       devise_parameter_sanitizer.permit(:sign_up){|u|u.permit(:nickname, :avatar, :profile, :member, :works)}
+#       devise_parameter_sanitizer.permit(:update){|u|u.permit(:nickname, :email, :avatar, :profile, :work, :member, :password)}
+#     end
+#（メモ）
+#なかなかeditしてもエラーが出ていたので、調べて、上記の書き方にしたら、デーダベースに保存されるようになったんやけど、editボタン押す度にsign_inページに飛んでしまってsign_inすればuserのshowページ飛んでくれるようになった。
